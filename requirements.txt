@@ -1,0 +1,9 @@
+<invoke name="edit_file">
+<parameter name="TargetFile">d:\dev\dev_python\develop\HC-Dashboard\requirements.txt</parameter>
+<parameter name="CodeEdit">streamlit==1.30.0
+pandas==2.1.3
+numpy==1.26.2
+plotly==5.18.0</parameter>
+<parameter name="Instruction">Memperbaiki format requirements.txt agar hanya berisi daftar package</parameter>
+<parameter name="CodeMarkdownLanguage">plaintext</parameter>
+</invoke>
