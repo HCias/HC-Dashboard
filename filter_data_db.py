@@ -36,10 +36,15 @@ print("\nFiltered columns:")
 for col in filtered_df.columns:
     print(f"- {col}")
 
-# Export the filtered data to a new Excel file
-output_path = os.path.join('dataset', 'db_dashboard.xlsx')
-filtered_df.to_excel(output_path, index=False)
-print(f"\nFiltered data exported to: {output_path}")
+# Export the filtered data to both Excel and CSV formats
+output_excel_path = os.path.join('dataset', 'db_dashboard.xlsx')
+output_csv_path = os.path.join('dataset', 'db_dashboard.csv')
+
+filtered_df.to_excel(output_excel_path, index=False)
+filtered_df.to_csv(output_csv_path, index=False)
+
+print(f"\nFiltered data exported to Excel: {output_excel_path}")
+print(f"Filtered data exported to CSV: {output_csv_path}")
 
 # Display a sample of the filtered data
 print("\nSample of filtered data:")

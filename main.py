@@ -14,11 +14,11 @@ st.set_page_config(
 st.title("HC Dashboard")
 st.write("Visualisasi Data Karyawan")
 
-# Path to the Excel file
-file_path = os.path.join('dataset', 'db_dashboard.xlsx')
+# Path to the CSV file (using CSV instead of Excel for better compatibility)
+file_path = os.path.join('dataset', 'db_dashboard.csv')
 
-# Read the Excel file
-df = pd.read_excel(file_path)
+# Read the CSV file
+df = pd.read_csv(file_path)
 
 # Display information about the data
 st.subheader("Data Karyawan")
