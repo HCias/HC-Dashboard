@@ -69,7 +69,7 @@ col1, col2 = st.columns(2)
 with col1:
     # Create a figure with soft colors using matplotlib and seaborn
     fig, ax = plt.subplots(figsize=(5, 3.5))
-    colors = ['#8FB3D9', '#D99AC5']  # Soft blue and soft pink
+    colors = ['#003C71', '#E36F1E']  # Navy blue and orange (IAS corporate colors)
 
     # Create the plot
     sns.barplot(x='Gender', y='Count', data=gender_counts, palette=colors, ax=ax)
