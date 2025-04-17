@@ -103,5 +103,46 @@ def display_age_charts(filtered_df):
         with stats_col4:
             st.metric("Umur Maksimum", f"{age_df['UMUR'].max():.1f}")
             
+        # Add section for employees over 50 years old (approaching retirement)
+        st.markdown("### Karyawan Mendekati Usia Pensiun (> 50 Tahun)")
+        
+        # Filter employees over 50 years old
+        retirement_df = age_df[age_df['UMUR'] > 50].copy()
+        
+        # Sort by age descending to show oldest employees first
+        retirement_df = retirement_df.sort_values('UMUR', ascending=False)
+        
+        # Select relevant columns for display
+        if 'NAMA KARYAWAN' in retirement_df.columns and 'DIREKTORAT' in retirement_df.columns:
+            display_cols = ['NAMA KARYAWAN', 'UMUR', 'DIREKTORAT', 'DIVISION', 'JENIS KELAMIN']
+            display_cols = [col for col in display_cols if col in retirement_df.columns]
+            
+            # Show count
+            st.write(f"Jumlah karyawan di atas 50 tahun: **{len(retirement_df)}** orang")
+            
+            # Display the dataframe with formatting
+            st.dataframe(
+                retirement_df[display_cols],
+                column_config={
+                    "NAMA KARYAWAN": st.column_config.TextColumn("Nama Karyawan"),
+                    "UMUR": st.column_config.NumberColumn("Umur (Tahun)"),
+                    "DIREKTORAT": st.column_config.TextColumn("Direktorat"),
+                    "DIVISION": st.column_config.TextColumn("Divisi"),
+                    "JENIS KELAMIN": st.column_config.TextColumn("Gender")
+                },
+                use_container_width=True,
+                hide_index=True
+            )
+            
+            # Add download button for the retirement list
+            csv = retirement_df[display_cols].to_csv(index=False).encode('utf-8')
+            st.download_button(
+                label="Download Daftar Karyawan > 50 Tahun",
+                data=csv,
+                file_name="karyawan_mendekati_pensiun.csv",
+                mime="text/csv",
+            )
+        else:
+            st.warning("Data karyawan tidak lengkap untuk menampilkan daftar karyawan mendekati pensiun.")
     else:
         st.warning("Data umur tidak tersedia atau semua nilai kosong.")
