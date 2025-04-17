@@ -5,6 +5,7 @@ import os
 # Import visualization modules
 from visualizations.gender_visualization import display_gender_charts
 from visualizations.age_visualization import display_age_charts
+from visualizations.status_visualization import display_status_charts
 
 # Set page configuration
 st.set_page_config(
@@ -64,3 +65,6 @@ display_gender_charts(filtered_df)
 
 # Display age charts
 display_age_charts(filtered_df)
+
+# Display employee status charts
+display_status_charts(filtered_df)

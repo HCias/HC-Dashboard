@@ -20,6 +20,7 @@ selected_columns = [
     'GROUP',
     'KODE POSISI',
     'REGION',
+    'BOD-',
     'JENIS KELAMIN',
     'AGAMA',
     'STATUS KARYAWAN',
