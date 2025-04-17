@@ -16,7 +16,9 @@ st.set_page_config(
 
 # App title and introduction
 st.title("Dashboard Karyawan")
-st.write("Dashboard Karyawan")
+
+# Show total employee count
+st.write(f"Total Karyawan: **{len(df):,}** orang")
 
 # Path to the CSV file (using CSV instead of Excel for better compatibility)
 file_path = os.path.join('dataset', 'db_dashboard.csv')
